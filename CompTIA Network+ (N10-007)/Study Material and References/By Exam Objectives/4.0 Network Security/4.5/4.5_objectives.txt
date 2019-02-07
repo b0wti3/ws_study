@@ -1,0 +1,13 @@
+Given a scenario, implement network device hardening.
+
+• Changing default credentials
+• Avoiding common passwords
+• Upgrading firmware
+• Patching and updates
+• File hashing
+• Disabling unnecessary services
+• Using secure protocols
+• Generating new keys
+• Disabling unused ports
+  - IP ports
+  - Device ports (physical and virtual)

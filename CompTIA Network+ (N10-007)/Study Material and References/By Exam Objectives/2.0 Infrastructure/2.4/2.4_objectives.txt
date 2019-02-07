@@ -1,0 +1,17 @@
+Explain the purposes of virtualization and network storage technologies.
+
+• Virtual networking components
+  - Virtual switch
+  - Virtual firewall
+  - Virtual NIC
+  - Virtual router
+  - Hypervisor
+• Network storage types
+  - NAS
+  - SAN
+• Connection type
+  - FCoE
+  - Fibre Channel
+  - iSCSI
+  - InfiniBand
+• Jumbo frame

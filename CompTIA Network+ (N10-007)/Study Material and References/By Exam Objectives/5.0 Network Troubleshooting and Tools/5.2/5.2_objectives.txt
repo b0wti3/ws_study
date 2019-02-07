@@ -1,0 +1,32 @@
+Given a scenario, use the appropriate tool.
+
+• Hardware tools
+  - Crimper
+  - Cable tester
+  - Punchdown tool
+  - OTDR
+  - Light meter
+  - Tone generator
+  - Loopback adapter
+  - Multimeter
+  - Spectrum analyzer
+• Software tools
+  - Packet sniffer
+  - Port scanner
+  - Protocol analyzer
+  - WiFi analyzer
+  - Bandwidth speed tester
+  - Command line
+     - ping
+     - tracert, traceroute
+     - nslookup
+     - ipconfig
+     - ifconfig
+     - iptables
+     - netstat
+     - tcpdump
+     - pathping
+     - nmap
+     - route
+     - arp
+     - dig 

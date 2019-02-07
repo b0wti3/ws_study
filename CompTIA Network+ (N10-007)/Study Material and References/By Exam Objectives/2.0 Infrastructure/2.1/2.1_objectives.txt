@@ -1,0 +1,59 @@
+Given a scenario, deploy the appropriate cabling solution.
+
+• Media types
+  - Copper
+     - UTP
+     - STP
+     - Coaxial
+  - Fiber
+     - Single-mode
+     - Multimode
+• Plenum vs. PVC
+• Connector types
+  - Copper
+     - RJ-45
+     - RJ-11
+     - BNC
+     - DB-9
+     - DB-25
+     - F-type
+  - Fiber
+     - LC
+     - ST
+     - SC
+     - APC
+     - UPC
+     - MTRJ
+• Transceivers
+  - SFP
+  - GBIC
+  - SFP+
+  - QSFP
+  - Characteristics of fiber transceivers
+     - Bidirectional
+     - Duplex
+• Termination points
+  - 66 block
+  - 110 block
+  - Patch panel
+  - Fiber distribution panel
+• Copper cable standards
+  - Cat 3
+  - Cat 5
+  - Cat 5e
+  - Cat 6
+  - Cat 6a
+  - Cat 7
+  - RG-6
+  - RG-59
+• Copper termination standards
+  - TIA/EIA 568a
+  - TIA/EIA 568b
+  - Crossover
+  - Straight-through
+• Ethernet deployment standards
+  - 100BaseT
+  - 1000BaseT
+  - 1000BaseLX
+  - 1000BaseSX
+  - 10GBaseT

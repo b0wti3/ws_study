@@ -1,0 +1,161 @@
+/* https://github.com/madmurphy/cookies.js (GPL3) */
+var docCookies={getItem:function(e){return e?decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*"+encodeURIComponent(e).replace(/[\-\.\+\*]/g,"\\$&")+"\\s*\\=\\s*([^;]*).*$)|^.*$"),"$1"))||null:null},setItem:function(e,o,n,t,r,c){if(!e||/^(?:expires|max\-age|path|domain|secure)$/i.test(e))return!1;var s="";if(n)switch(n.constructor){case Number:s=n===1/0?"; expires=Fri, 31 Dec 9999 23:59:59 GMT":"; max-age="+n;break;case String:s="; expires="+n;break;case Date:s="; expires="+n.toUTCString()}return document.cookie=encodeURIComponent(e)+"="+encodeURIComponent(o)+s+(r?"; domain="+r:"")+(t?"; path="+t:"")+(c?"; secure":""),!0},removeItem:function(e,o,n){return this.hasItem(e)?(document.cookie=encodeURIComponent(e)+"=; expires=Thu, 01 Jan 1970 00:00:00 GMT"+(n?"; domain="+n:"")+(o?"; path="+o:""),!0):!1},hasItem:function(e){return!e||/^(?:expires|max\-age|path|domain|secure)$/i.test(e)?!1:new RegExp("(?:^|;\\s*)"+encodeURIComponent(e).replace(/[\-\.\+\*]/g,"\\$&")+"\\s*\\=").test(document.cookie)},keys:function(){for(var e=document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g,"").split(/\s*(?:\=[^;]*)?;\s*/),o=e.length,n=0;o>n;n++)e[n]=decodeURIComponent(e[n]);return e}};"undefined"!=typeof module&&"undefined"!=typeof module.exports&&(module.exports=docCookies);
+
+
+(function(){
+	var selectorDomain = 'store.comptia.org',
+	selectorPath = '/location-selector',
+	cookieName = 'location',
+	cookieDomain = 'comptia.org',
+	locationMap = {
+		northamerica: 'store.comptia.org',
+		emerging: 'emerging-store.comptia.org',
+		euro: 'eu-store.comptia.org',
+		unitedkingdom: 'uk-store.comptia.org',
+		australia: 'au-store.comptia.org',
+		southafrica: 'za-store.comptia.org',
+		global: 'global-store.comptia.org',
+		japan: 'jp-store.comptia.org',
+		academic: 'academic-store.comptia.org',
+		ukacademic: 'uk-academic-store.comptia.org',
+		default: 'store.comptia.org'
+	},
+	exemptHosts = [
+		'certification.comptia.org',
+		'dev-certification.comptia.org',
+		'staging-certification.comptia.org',
+		'192.168.0.89',
+		'192.168.0.80',
+		'localhost:44337',
+		'localhost:61179'
+	],
+	movedHosts = {
+		'www.comptiastore.co.uk': 'unitedkingdom',
+		'www.comptiastore.eu': 'euro',
+		'www.comptiastore.com': '',
+		'www.comptiastore.co.za': 'southafrica',
+		'www.comptiastore.com.au': 'australia',
+		'india.comptiastore.asia': 'emerging',
+		'global.comptiastore.com': 'global',
+		'academic.comptiastore.com': 'academic',
+		'academic.comptiastore.co.uk': 'ukacademic',
+		'www.comptiastore.jp': 'japan'
+	},
+	excludedPaths = [
+		'/myaccount.asp', '/login.asp', '/orders.asp', '/returns.asp', '/accountsettings.asp', '/mailinglist_unsubscribe.asp', '/wishlist.asp', '/login_sendpass.asp'
+	]
+	hasCookie = docCookies.hasItem(cookieName),
+	cookieVal = docCookies.getItem(cookieName);
+	var QS = parseQuery(window.location.search);
+
+
+	if (!docCookies.getItem("initialReferrer") && window.location.pathname == "/auto-add-to-cart") {
+		docCookies.setItem("initialReferrer", document.referrer, "", "/", cookieDomain);
+    } 
+
+	if ((window.location.pathname !== selectorPath) && ((window.cancelMap == true) || (cookieVal == 'stay'))) {
+		docCookies.setItem(cookieName, 'stay', 31536e3, '/', cookieDomain);
+		document.getElementsByClassName('globalStores')[0].style.visibility = 'hidden';
+		return;
+	}
+	if (typeof NodeList.prototype.forEach === "undefined") {
+        NodeList.prototype.forEach = Array.prototype.forEach;
+    }
+	if (typeof HTMLCollection.prototype.forEach === "undefined") {
+	        HTMLCollection.prototype.forEach = Array.prototype.forEach;
+	}
+
+	if(QS.location && QS.location!=="") {
+		docCookies.setItem(cookieName, QS.location, 31536e3, '/', cookieDomain);
+		return;
+	}
+	if(window.location.pathname == selectorPath && window.location.host == selectorDomain){
+		
+		var returnPath = QS.path || '/';
+		if (returnPath.indexOf('/') !== 0) {
+			returnPath = '/';
+		}
+
+		if(QS.setDest){
+			setLocationAndRedirect(QS.setDest, returnPath);			
+		}
+
+		var countryLinks = document.querySelectorAll('.countryBtn')
+		countryLinks.forEach(function(l){
+			l.addEventListener('click', function(e){
+				e.preventDefault();			
+
+				var country = this.dataset.country;
+				var destDomain = locationMap[country] ? locationMap[country] : locationMap["default"];
+				
+				if(destDomain.indexOf(cookieDomain) === -1){
+					returnPath = '/';
+				}
+				setLocationAndRedirect(country, returnPath);
+			});
+		});
+		//Check to see if user is on the old volusion version and re-direct
+	} else if(Object.keys(movedHosts).indexOf(window.location.hostname) >= 0 ){
+		var currentPath = '/' + window.location.href.split('/').slice(3).join('/');
+		if (currentPath.indexOf('?') == -1) {
+			currentPath += "?location=" + movedHosts[window.location.hostname];
+		}
+		else {
+			currentPath += "&location=" + movedHosts[window.location.hostname];
+		}
+		if (excludedPaths.indexOf(window.location.pathname.toLowerCase()) == -1 ) {
+			setLocationAndRedirect(movedHosts[window.location.hostname], currentPath);	
+		}
+	}
+	else if(exemptHosts.indexOf(window.location.hostname) >= 0 ){
+		if (hasCookie) {
+			//The user is on an exempt host and has a cookie set so rewrite links to the correct URL		
+			var storeLinks = document.querySelectorAll('a[href="*' + locationMap.default + '"]');
+			storeLinks.forEach(function(l){
+				l.host = locationMap[cookieVal];
+			});
+		}
+	}
+	else{
+		
+		var currentPath = '/' + window.location.href.split('/').slice(3).join('/');
+		if(!hasCookie){//Redirect the user to the selector if they don't have the cookie			
+			window.location.href = 'https://' + selectorDomain + selectorPath + '?path=' + encodeURIComponent(currentPath);	
+		}
+		else{
+			//This redirects the user back to the site defined in the cookie if they go to a different site
+			var cookieVal = docCookies.getItem(cookieName);
+			if(locationMap[cookieVal] !== window.location.host){
+				setLocationAndRedirect(cookieVal, currentPath);
+			}
+		}
+		document.querySelectorAll('.globalStores a').forEach(function(l){
+			l.setAttribute('href','https://' + selectorDomain + selectorPath + '?path=' + encodeURIComponent(currentPath));
+		})
+	}
+
+
+	function setLocationAndRedirect(location, path){
+		//Set the cookie
+		docCookies.setItem(cookieName, location, 31536e3, '/', cookieDomain);
+		var newURL;
+
+		if(locationMap[location]){
+			newURL = 'https://' + locationMap[location] + path;
+		}else{
+			newURL = 'https://' + locationMap.default + path;
+		}
+		window.location.href= newURL;
+	}
+
+	function parseQuery(queryString) {
+	    var query = {};
+	    var pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
+	    for (var i = 0; i < pairs.length; i++) {
+	        var pair = pairs[i].split('=');
+	        query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+	    }
+	    return query;
+	}
+}());
+

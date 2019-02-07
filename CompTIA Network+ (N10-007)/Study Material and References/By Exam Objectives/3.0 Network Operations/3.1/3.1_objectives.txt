@@ -1,0 +1,12 @@
+Given a scenario, use appropriate documentation and diagrams to manage the network.
+
+• Diagram symbols
+• Standard operating procedures/work instructions
+• Logical vs. physical diagrams
+• Rack diagrams
+• Change management documentation
+• Wiring and port locations
+• IDF/MDF documentation
+• Labeling
+• Network configuration and performance baselines
+• Inventory management

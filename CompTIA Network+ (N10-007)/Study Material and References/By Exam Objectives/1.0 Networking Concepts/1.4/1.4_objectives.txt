@@ -1,0 +1,20 @@
+Given a scenario, configure the appropriate IP addressing components.
+
+• Private vs. public
+• Loopback and reserved
+• Default gateway
+• Virtual IP
+• Subnet mask
+• Subnetting
+  - Classful
+     - Classes A, B, C, D, and E
+  - Classless
+     - VLSM
+     - CIDR notation (IPv4 vs. IPv6)
+• Address assignments
+  - DHCP
+  - DHCPv6
+  - Static
+  - APIPA
+  - EUI64
+  - IP reservations

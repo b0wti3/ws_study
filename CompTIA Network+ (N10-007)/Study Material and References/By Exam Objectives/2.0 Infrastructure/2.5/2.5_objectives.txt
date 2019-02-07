@@ -1,0 +1,29 @@
+Compare and contrast WAN technologies.
+
+• Service type
+  - ISDN
+  - T1/T3
+  - E1/E3
+  - OC-3 – OC-192
+  - DSL
+  - Metropolitan Ethernet
+  - Cable broadband
+  - Dial-up
+  - PRI
+• Transmission mediums
+  - Satellite
+  - Copper
+  - Fiber
+  - Wireless
+• Characteristics of service
+  - MPLS
+  - ATM
+  - Frame relay
+  - PPPoE
+  - PPP
+  - DMVPN
+  - SIP trunk
+• Termination
+  - Demarcation point
+  - CSU/DSU
+  - Smart jack

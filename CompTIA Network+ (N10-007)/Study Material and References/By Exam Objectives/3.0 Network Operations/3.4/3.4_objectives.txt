@@ -1,0 +1,19 @@
+Given a scenario, use remote access methods.
+
+• VPN
+  - IPSec
+  - SSL/TLS/DTLS
+  - Site-to-site
+  - Client-to-site
+• RDP
+• SSH
+• VNC
+• Telnet
+• HTTPS/management URL
+• Remote file access
+  - FTP/FTPS
+  - SFTP
+  - TFTP
+• Out-of-band management
+  - Modem
+  - Console router

@@ -4,8 +4,8 @@ A repository designed for group studying for the whitespace discord server.
 ## Topics Covered
 - CompTIA Network+ (N10-007)
 - CompTIA Security+ (SY0-501)
-- OSINT Framework (https://inteltechniques.com)
-- Elastic Stack (https://www.elastic.co/learn)
+- Open Source Intelligence Techniques
+- Elasticsearch 6 and Elastic Stack
 
 ## What This is NOT
 - A study program

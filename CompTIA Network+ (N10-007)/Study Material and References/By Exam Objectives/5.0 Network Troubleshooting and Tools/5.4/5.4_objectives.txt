@@ -1,0 +1,20 @@
+Given a scenario, troubleshoot common wireless connectivity and performance issues.
+
+• Reflection
+• Refraction
+• Absorption
+• Latency
+• Jitter
+• Attenuation
+• Incorrect antenna type
+• Interference
+• Incorrect antenna placement
+• Channel overlap
+• Overcapacity
+• Distance limitations
+• Frequency mismatch
+• Wrong SSID
+• Wrong passphrase
+• Security type mismatch
+• Power levels
+• Signal-to-noise ratio

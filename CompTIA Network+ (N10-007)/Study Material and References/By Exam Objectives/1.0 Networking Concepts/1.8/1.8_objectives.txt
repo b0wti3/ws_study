@@ -1,0 +1,25 @@
+Explain the functions of network services.
+
+• DNS service
+  - Record types
+     - A, AAAA
+     - TXT (SPF, DKIM)
+     - SRV
+     - MX
+     - CNAME
+     - NS
+     - PTR
+  - Internal vs. external DNS
+  - Third-party/cloud-hosted DNS
+  - Hierarchy
+  - Forward vs. reverse zone
+• DHCP service
+  - MAC reservations
+  - Pools
+  - IP exclusions
+  - Scope options
+  - Lease time
+  - TTL
+  - DHCP relay/IP helper
+• NTP
+• IPAM

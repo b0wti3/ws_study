@@ -1,0 +1,14 @@
+Explain the purposes and use cases for advanced networking devices.
+
+• Multilayer switch
+• Wireless controller
+• Load balancer
+• IDS/IPS
+• Proxy server
+• VPN concentrator
+• AAA/RADIUS server
+• UTM appliance
+• NGFW/Layer 7 firewall
+• VoIP PBX
+• VoIP gateway
+• Content filter

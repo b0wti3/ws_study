@@ -1,0 +1,21 @@
+Given a scenario, implement the appropriate wireless technologies and configurations.
+
+• 802.11 standards
+  - a
+  - b
+  - g
+  - n
+  - ac
+• Cellular
+  - GSM
+  - TDMA
+  - CDMA
+• Frequencies
+  - 2.4GHz
+  - 5.0GHz
+• Speed and distance requirements
+• Channel bandwidth
+• Channel bonding
+• MIMO/MU-MIMO
+• Unidirectional/omnidirectional
+• Site surveys

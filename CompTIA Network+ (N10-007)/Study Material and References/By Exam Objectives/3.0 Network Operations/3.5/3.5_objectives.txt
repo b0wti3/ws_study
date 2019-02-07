@@ -1,0 +1,16 @@
+Identify policies and best practices.
+
+• Privileged user agreement
+• Password policy
+• On-boarding/off-boarding procedures
+• Licensing restrictions
+• International export controls
+• Data loss prevention
+• Remote access policies
+• Incident response policies
+• BYOD
+• AUP
+• NDA
+• System life cycle
+  - Asset disposal
+• Safety procedures and policies

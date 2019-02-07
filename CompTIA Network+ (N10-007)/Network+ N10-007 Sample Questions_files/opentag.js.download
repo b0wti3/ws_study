@@ -1,0 +1,116 @@
+(function() {var scripts = '';(function() {
+  /**
+   * Check whether the page is still loading or not. If the page has finished
+   * loading, then loadScripts function will be called in order to create all
+   * scripts assigned to this URL. If the page is still loading, a listener will
+   * be added to the DOMContentLoaded event to invoke loadScripts once the page
+   * stops loading.
+   */
+  if (document.readyState !== 'loading') {
+    loadScripts();
+  } else {
+    document.addEventListener('DOMContentLoaded', loadScripts);
+  }
+
+  /**
+   * The currentURL variable represents the URL value in the browser address bar
+   * when this script (opentag.js) was loaded. This variable is used to detect if
+   * the current URL is allowed to load some or all of the assigned scripts or not.
+   */
+  var currentURL = location.origin + location.pathname;
+
+  /**
+   * Loads scripts that were assigned to the current URL. A script can be assigned
+   * to a URL (or specifically a URL of a campaign) using the admin dashboard.
+   */
+  function loadScripts() {
+    // The `scripts` variable is a global variable (string) that represents the list
+    // of scripts assigned to a given campaign. The campaign id is expected to be
+    // provided in the query string as a parameter. (/opentag.js?id=3241232324)
+    // The Express app router in: routes/index.js will fetch the associated data from
+    // the remote data source and define a `scripts` variable on the window object.
+    var scriptsArray = scripts.split(',');
+
+    // The script source can be provided in the following format:
+    // [LOCATION] [IS_ASYNC] [SCRIPT_URL]@[ALLOWED_URLS]
+    // An example:
+    // head async https://mydomain.com/my-script.js@http://instascaler.com
+    // The above example means that the script:
+    // https://mydomain.com/my-script.js
+    // will be an asyncronous script appended to the <head /> element and is only
+    // allowed on http://instascaler.com domain
+    // If the currentURL does not match http://instascaler.com the script will not be loaded
+    
+    // An allowed URL doesn't have to be an exact match, globbing is allowed. For example:
+    // head async https://mydomain.com/my-script.js@http://instascaler.com/**
+    // This allowed URL will match instascaler domain and all pages on instascaler.com such as:
+    // http://instascaler.com/posts/year/2018 and http://instascaler.com/cars
+
+    // For matching only a single level, use a single asterisk. For example:
+    // head async https://mydomain.com/my-script.js@http://instascaler.com/*
+    // This will match URLs like: http://instascaler.com/contact or http://instascaler.com/blog
+    // but will not match http://instascaler.com/team/business
+
+    // Multiple patterns are allowed by using the ; symbol to separate them. For example:
+    // head async https://mydomain.com/my-script.js@http://instascaler.com;http://facebook.com
+    scriptsArray.forEach(function(scriptSrc) {
+      var scriptURL = scriptSrc.split('@')[0];
+      var allowedURLs = scriptSrc.split('@')[1] ? scriptSrc.split('@')[1].split(';') : [];
+      var inHead = (scriptURL.trim().match(/\s*head\s*/g) || []).length > 0;
+      var isAsync = (scriptURL.trim().match(/\s*async\s*/g) || []).length > 0;
+
+      if (shouldAppendTag(allowedURLs)) {
+        appendTag(scriptURL.replace(/(\s*head\s*|\s*async\s*)/g, ''), inHead, isAsync);
+      }
+    });
+  }
+
+  /**
+   * Checks whether a certain script is allowed to be loaded. This function expects a list
+   * of URLs which will be matched against the current URL to check if the script should be
+   * loaded or not. The list of allowed URLs are extracted from the script string.
+   * This function is only used by loadScripts.
+   * @param {Array} allowedURLs List of allowed URLs for the script.
+   */
+  function shouldAppendTag(allowedURLs) {
+    if (allowedURLs.length === 0 || allowedURLs.indexOf(currentURL) !== -1) {
+      return true;
+    }
+
+    // search for patterns
+    for(var i = 0, n = allowedURLs.length; i < n; i++) {
+      var url = allowedURLs[i];
+
+      var pattern = url;
+
+      // re-construct the regex by replacing * and ** with actual regexps. You can't ask the 
+      // admin dashboard users to enter this regex: /?([^/]*?)/?$ if they want to match any level.
+      // A single asterisk is much more user friendly.
+      pattern = pattern.replace(/(\/\*\*)$/g, '/?([^/]*?)');
+      pattern = pattern.replace(/\/\*$/g, '/?([^/]*?)/?$');
+
+      var regex = new RegExp(pattern, 'g');
+
+      if (regex.test(currentURL)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /**
+   * Create a script tag using the given source and append it the the head if inHead is true
+   * or to the body if inHead is false.
+   * @param {*} src       Script source URL.
+   * @param {*} inHead    Whether the script should be in the <head /> or the <body />.
+   * @param {*} isAsync   Whether the script is asyncronous or not.
+   */
+  function appendTag(src, inHead, isAsync) {
+    var script = document.createElement('script');
+    script.src = src;
+    script.async = isAsync;
+    document[inHead ? 'head' : 'body'].appendChild(script);
+  }
+}());
+}());

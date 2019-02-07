@@ -1,0 +1,21 @@
+Explain common scanning, monitoring and patching processes and summarize their expected outputs.
+
+• Processes
+  - Log reviewing
+  - Port scanning
+  - Vulnerability scanning
+  - Patch management
+     - Rollback
+  - Reviewing baselines
+  - Packet/traffic analysis
+• Event management
+  - Notifications
+  - Alerts
+  - SIEM
+• SNMP monitors
+  - MIB
+• Metrics
+  - Error rate
+  - Utilization
+  - Packet drops
+  - Bandwidth/throughput

@@ -1,0 +1,22 @@
+Summarize common networking attacks.
+
+• DoS
+  - Reflective
+  - Amplified
+  - Distributed
+• Social engineering
+• Insider threat
+• Logic bomb
+• Rogue access point
+• Evil twin
+• War-driving
+• Phishing
+• Ransomware
+• DNS poisoning
+• ARP poisoning
+• Spoofing
+• Deauthentication
+• Brute force
+• VLAN hopping
+• Man-in-the-middle
+• Exploits vs. vulnerabilities

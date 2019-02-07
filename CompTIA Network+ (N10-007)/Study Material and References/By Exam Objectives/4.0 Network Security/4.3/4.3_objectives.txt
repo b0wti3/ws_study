@@ -1,0 +1,15 @@
+Given a scenario, secure a basic wireless network.
+
+• WPA
+• WPA2
+• TKIP-RC4
+• CCMP-AES
+• Authentication and authorization
+  - EAP
+     - PEAP
+     - EAP-FAST
+     - EAP-TLS
+  - Shared or open
+  - Preshared key
+  - MAC filtering
+• Geofencing

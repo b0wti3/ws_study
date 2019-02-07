@@ -1,0 +1,19 @@
+Given a scenario, troubleshoot common wired connectivity and performance issues.
+
+• Attenuation
+• Latency
+• Jitter
+• Crosstalk
+• EMI
+• Open/short
+• Incorrect pin-out
+• Incorrect cable type
+• Bad port
+• Transceiver mismatch
+• TX/RX reverse
+• Duplex/speed mismatch
+• Damaged cables
+• Bent pins
+• Bottlenecks
+• VLAN mismatch
+• Network connection LED status indicators

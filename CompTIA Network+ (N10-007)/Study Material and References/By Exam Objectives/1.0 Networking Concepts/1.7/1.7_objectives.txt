@@ -1,0 +1,13 @@
+Summarize cloud concepts and their purposes.
+
+• Types of services
+  - SaaS
+  - PaaS
+  - IaaS
+• Cloud delivery models
+  - Private
+  - Public
+  - Hybrid
+• Connectivity methods
+• Security implications/considerations
+• Relationship between local and cloud resources

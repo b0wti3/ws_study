@@ -1,0 +1,144 @@
+﻿/* Load if BasicTable is found */
+/* requires /module/basictable/basictable.js */
+
+$(function () {
+    var $el = $('.basictable');
+
+    if ($el.length) {
+        $('.basictable').ResponsiveTables({
+            smallPaddingCharNo: 50,
+            mediumPaddingCharNo: 50,
+            largePaddingCharNo: 50
+        });
+    }
+});
+
+/* End BasicTable 
+
+
+/* For TitleContainer - If the link box is not there, style needs to be added to adjust padding */
+
+$(function () {
+    var $el = $('.title-content');
+    if ($el.length) {
+        $('.title-content').NoLinkbox();
+    }
+});
+
+/* End TitleContainer */
+
+
+/* For TitleContainer - If the link box is not there, style needs to be added to adjust padding */
+
+$(function () {
+    var $el = $('#accordion');
+    if ($el.length) {
+        $("#accordion").jqueryAccordion({
+            interval: 600,
+            fadeContent: true,
+            open: false,
+            defaultOpenIndex: 1
+        });
+    }
+});
+
+/* End TitleContainer */
+
+
+/* For SVG incompatibility - fall back to the png version */
+
+$(function () {
+    if (!Modernizr.svg) {
+        $('img[src*="svg"]').attr('src', function () {
+            return $(this).attr('src').replace('.svg', '.png');
+        });
+    }
+});
+/* End SVG incompatibility */
+
+
+/* For smoothScroll - currently only used in Product Pages */
+$(function () {
+    var $el = $('.productnavigation');
+    if ($el.length) {
+        smoothScroll.init({
+            speed: 500,
+            easing: 'linear',
+            offset: 140,
+            updateURL: true,
+            callbackBefore: function (toggle, anchor) { },
+            callbackAfter: function (toggle, anchor) { }
+        });
+    }
+});
+/* End smoothScroll */
+
+
+/* for Masterslider */
+$(function () {
+    var $el = $('#masterslider');
+    if ($el.length) {
+        var slider = new MasterSlider();
+        slider.setup('masterslider', {
+            width: 1000,    // slider standard width
+            height: 400,   // slider standard height
+            space: 5,
+            autoplay: true,
+            speed: 10,
+            loop: true
+        });
+        slider.control('arrows', { autohide: false });
+        slider.control('bullets', { autohide: false, dir: "h", align: "bottom" });
+    }
+});
+/* End Masterslider */
+
+
+
+/* Form Tracking for Field Analyse in Google Analytics */
+$(function () {
+    var $el = $('[id*=AnalyzeForm');
+    if ($el.length) {
+        $el.find(':input').blur(function () {
+            if ($(this).val().length > 0) {
+                _gaq.push(['_trackEvent', 'Form Analysis', $el.attr('id'), $(this).attr('name'), true]);
+            }
+        });
+    }
+});
+
+$(function () {
+    var $el = $("[class*='ObjQuestForm']")
+    if ($el.length) {
+        $el.find(':input').blur(function () {
+            if ($(this).val().length > 0) {
+                _gaq.push(['_trackEvent', 'Form Analysis', $el.attr('class'), $(this).attr('name'), true]);
+            }
+        });
+    }
+});
+
+
+$(function () {
+    var $el = $("[class*='CertMasterProductForm']");
+    if ($el.length) {
+        $el.find(':input').blur(function () {
+            if ($(this).val().length > 0) {
+                _gaq.push(['_trackEvent', 'Form Analysis', $el.attr('class'), $(this).attr('name'), true]);
+            }
+        });
+    }
+});
+
+$(function () {
+    var $el = $("[class*='CertMasterTrialForm']");
+    if ($el.length) {
+        $el.find(':input').blur(function () {
+            if ($(this).val().length > 0) {
+                _gaq.push(['_trackEvent', 'Form Analysis', $el.attr('class'), $(this).attr('name'), true]);
+            }
+        });
+    }
+});
+
+/* End **** Form Tracking for Field Analyse in Google Analytics */

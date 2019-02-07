@@ -1,0 +1,24 @@
+Explain authentication and access controls.
+
+• Authorization, authentication and accounting
+  - RADIUS
+  - TACACS+
+  - Kerberos
+  - Single sign-on
+  - Local authentication
+  - LDAP
+  - Certificates
+  - Auditing and logging
+• Multifactor authentication
+  - Something you know
+  - Something you have
+  - Something you are
+  - Somewhere you are
+  - Something you do
+• Access control
+  - 802.1x
+  - NAC
+  - Port security
+  - MAC filtering
+  - Captive portal
+  - Access control lists

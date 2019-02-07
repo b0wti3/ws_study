@@ -1,0 +1,52 @@
+Explain the concepts and characteristics of routing and switching.
+
+• Properties of network traffic
+  - Broadcast domains
+  - CSMA/CD
+  - CSMA/CA
+  - Collision domains
+  - Protocol data units
+  - MTU
+  - Broadcast
+  - Multicast
+  - Unicast
+• Segmentation and interface properties
+  - VLANs
+  - Trunking (802.1q)
+  - Tagging and untagging ports
+  - Port mirroring
+  - Switching loops/spanning tree
+  - PoE and PoE+ (802.3af, 802.3at)
+  - DMZ
+  - MAC address table
+  - ARP table
+• Routing
+  - Routing protocols (IPv4 and IPv6)
+     - Distance-vector routing protocols
+     - RIP
+     - EIGRP
+     - Link-state routing protocols
+     - OSPF
+     - Hybrid
+ - BGP
+  - Routing types
+     - Static
+     - Dynamic
+     - Default
+• IPv6 concepts
+  - Addressing
+  - Tunneling
+  - Dual stack
+  - Router advertisement
+  - Neighbor discovery
+• Performance concepts
+  - Traffic shaping
+  - QoS
+  - Diffserv
+  - CoS
+• NAT/PAT
+• Port forwarding
+• Access control list
+• Distributed switching
+• Packet-switched vs. circuit-switched network
+• Software-defined networking

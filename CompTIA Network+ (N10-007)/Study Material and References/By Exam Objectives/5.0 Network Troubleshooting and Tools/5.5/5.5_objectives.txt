@@ -1,0 +1,17 @@
+Given a scenario, troubleshoot common network service issues.
+
+• Names not resolving
+• Incorrect gateway
+• Incorrect netmask
+• Duplicate IP addresses
+• Duplicate MAC addresses
+• Expired IP address
+• Rogue DHCP server
+• Untrusted SSL certificate
+• Incorrect time
+• Exhausted DHCP scope
+• Blocked TCP/UDP ports
+• Incorrect host-based firewall settings
+• Incorrect ACL settings
+• Unresponsive service
+• Hardware failure

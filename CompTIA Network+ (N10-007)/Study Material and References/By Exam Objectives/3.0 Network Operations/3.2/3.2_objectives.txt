@@ -1,0 +1,26 @@
+Compare and contrast business continuity and disaster recovery concepts.
+
+• Availability concepts
+  - Fault tolerance
+  - High availability
+  - Load balancing
+  - NIC teaming
+  - Port aggregation
+  - Clustering
+  - Power management
+     - Battery backups/UPS
+     - Power generators
+     - Dual power supplies
+     - Redundant circuits
+• Recovery
+  - Cold sites
+  - Warm sites
+  - Hot sites
+  - Backups
+     - Full
+     - Differential
+     - Incremental
+  - Snapshots
+• MTTR
+• MTBF
+• SLA requirements

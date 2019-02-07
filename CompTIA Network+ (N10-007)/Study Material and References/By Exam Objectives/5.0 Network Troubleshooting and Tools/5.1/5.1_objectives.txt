@@ -1,0 +1,22 @@
+Explain the network troubleshooting methodology.
+
+• Identify the problem
+   - Gather information
+   - Duplicate the problem, if possible
+   - Question users
+   - Identify symptoms
+   - Determine if anything has changed
+   - Approach multiple problems individually
+• Establish a theory of probable cause
+   - Question the obvious
+   - Consider multiple approaches
+   - Top-to-bottom/bottom-to-top
+ OSI model
+   - Divide and conquer
+• Test the theory to determine the cause
+  - Once the theory is confirmed, determine the next steps to resolve the problem
+  - If the theory is not confirmed, reestablish a new theory or escalate
+• Establish a plan of action to resolve the problem and identify potential effects
+• Implement the solution or escalate as necessary
+• Verify full system functionality and, if applicable, implement preventive measures
+• Document findings, actions, and outcomes

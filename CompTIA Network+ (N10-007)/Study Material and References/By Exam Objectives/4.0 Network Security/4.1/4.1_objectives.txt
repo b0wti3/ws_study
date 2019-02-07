@@ -1,0 +1,13 @@
+Summarize the purposes of physical security devices.
+
+• Detection
+  - Motion detection
+  - Video surveillance
+  - Asset tracking tags
+  - Tamper detection
+• Prevention
+  - Badges
+  - Biometrics
+  - Smart cards
+  - Key fob
+  - Locks

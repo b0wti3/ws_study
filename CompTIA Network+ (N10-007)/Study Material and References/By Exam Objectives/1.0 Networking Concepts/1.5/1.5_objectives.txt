@@ -1,0 +1,28 @@
+Compare and contrast the characteristics of network topologies, types and technologies.
+
+• Wired topologies
+  - Logical vs. physical
+  - Star
+  - Ring
+  - Mesh
+  - Bus
+• Wireless topologies
+  - Mesh
+  - Ad hoc
+  - Infrastructure
+• Types
+  - LAN
+  - WLAN
+  - MAN
+  - WAN
+  - CAN
+  - SAN
+  - PAN
+• Technologies that facilitate the Internet of Things (IoT)
+  - Z-Wave
+  - Ant+
+  - Bluetooth
+  - NFC
+  - IR
+  - RFID
+  - 802.11

@@ -1,0 +1,12 @@
+Given a scenario, determine the appropriate placement of networking devices on a network and install/configure them.
+
+• Firewall
+• Router
+• Switch
+• Hub
+• Bridge
+• Modems
+• Wireless access point
+• Media converter
+• Wireless range extender
+• VoIP endpoint

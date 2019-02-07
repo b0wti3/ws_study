@@ -1,0 +1,20 @@
+Explain common mitigation techniques and their purposes.
+
+• Signature management
+• Device hardening
+• Change native VLAN
+• Switch port protection
+  - Spanning tree
+  - Flood guard
+  - BPDU guard
+  - Root guard
+  - DHCP snooping
+• Network segmentation
+  - DMZ
+  - VLAN
+• Privileged user account
+• File integrity monitoring
+• Role separation
+• Restricting access via ACLs
+• Honeypot/honeynet
+• Penetration testing
